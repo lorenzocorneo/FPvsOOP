@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{proc}
 
 \usepackage{csquotes}
 
@@ -16,11 +16,24 @@ Human resources and time consumption are very important factors in software deve
 The main object of investigation in this project are the lines of code needed to develop two different implementations of the same program and the level of reusability of existing code.
 
 Functional programming has some fundamental benefits that increase programmer productivity over that when OOP languages. The purpose of this project is to demonstrate some of the benefits of functional programming over OOP, in order to persuade developers to switch to functional programming.
+
+From the evaluation of the gathered data it is possible to see that, averagely, the number of Lines Of Code in a functional programming language is smaller than in an Object Oriented Programming language. As a consequence, Functional Programming allows an increased productivity (fewer lines of code correspond to a time saving). \textbf{Then when we have data regarding the code reuse we write here.}
 \end{abstract}
+
+\smallskip
+\noindent \textbf{Keywords.} Functional Programming, Object Oriented Programming, Comparison, Productivity, Code Reuse.
 
 \section{Introduction}
 
-\section{Comparison criteria}
+The paper presents the results of a quantitative evaluation of code implemented in both Functional Programming and Object Oriented Programming. The main parameters that will be analysed are the Line Of Code and the Code Reuse.
+
+The main test-bed for the productivity analysis is based on the LOC of different implementations (both FP and OOP) of very well-known algorithms. The language pool is composed by Erlang, Haskell, Scala, F\#, for the FP languages and by Java, C++, C\#, Python for the OOP languages.
+
+The CR is evaluated counting the difference in terms of LOC between adjacent releases of a program. Object of the investigation, as a case study, is the asynchronous web server Play framework, that is implemented both in Java and Scala.
+
+The results of the investigation are presented in section 3 while the evaluation of the data are discussed in section 4.
+
+The aim of the research is to show the benefits of FP over OOP with the hope to persuade software developer to adopt FP as their main programming paradigm, for a better productivity and code reuse. 
 
 \section{Experimentation results}
 
