@@ -1,6 +1,7 @@
 \documentclass{proc}
 
-\usepackage{csquotes}
+\usepackage{natbib}
+\usepackage{url}
 
 \begin{document}
 
@@ -17,7 +18,7 @@ The main object of investigation in this project are the lines of code needed to
 
 Functional programming has some fundamental benefits that increase programmer productivity over that when OOP languages. The purpose of this project is to demonstrate some of the benefits of functional programming over OOP, in order to persuade developers to switch to functional programming.
 
-From the evaluation of the gathered data it is possible to see that, averagely, the number of Lines Of Code in a functional programming language is smaller than in an Object Oriented Programming language. As a consequence, Functional Programming allows an increased productivity (fewer lines of code correspond to a time saving). \textbf{Then when we have data regarding the code reuse we write here.}
+From the evaluation of the gathered data it is possible to see that, averagely, the number of Lines Of Code in a functional programming language is smaller than in an Object Oriented Programming language. As a consequence, Functional Programming allows an increased productivity (fewer lines of code correspond to a time saving).
 \end{abstract}
 
 \smallskip
@@ -29,31 +30,47 @@ The paper presents the results of a quantitative evaluation of code implemented 
 
 The main test-bed for the productivity analysis is based on the LOC of different implementations (both FP and OOP) of very well-known algorithms. The language pool is composed by Erlang, Haskell, Scala, F\#, for the FP languages and by Java, C++, C\#, Python for the OOP languages.
 
-The CR is evaluated counting the difference in terms of LOC between adjacent releases of a program. Object of the investigation, as a case study, is the asynchronous web server Play framework, that is implemented both in Java and Scala.
+The CR is evaluated counting the difference in terms of LOC between adjacent releases of a program. Object of the investigation, as a case study, is the asynchronous web server Play framework\cite{play}, that is implemented both in Java and Scala.
 
-The results of the investigation are presented in section 3 while the evaluation of the data are discussed in section 4.
+In section 2, a summary of the studied literature will be presented while in section 3 the methods and the hypothesis will be discussed. The results of the investigation and the analysis are presented in section 5, in section 6 a discussion about the initial hypothesis and the results will be discussed.
 
 The aim of the research is to show the benefits of FP over OOP with the hope to persuade software developer to adopt FP as their main programming paradigm, for a better productivity and code reuse. 
 
-\section{Experimentation results}
+\section{Literature study}
 
-\section{Evaluation}
+OOP is the de facto standard programming paradigm for companies and widely adopted all around the world. This find a confirmation in the TIOBE Index\cite{tiobe}. In fact, in the first positions only OOP and Web programming languages are found, while the first FP language is Scala at the 24th position with a rating of 0.781\%
 
-\section{Acknowledgement}
+Nevertheless, functional programming gurus always try to persuade imperative programmers to switch to this paradigm promising incredible advantages. Amongst these benefits we found the lack of assignment statements (variables never change) and side effects, which is the major source of bugs in software development\cite{fpmatter}.
+
+Furthermore, a thorough evaluation about the two programming paradigms has been performed by Harrison\cite{harrison}. He defined parameters to be able to measure the quality of the software, including LOC and CR. Then, from the domain application of the image processing, he selected a developer with similar skills both in C++ and SML (functional language of the ML family) who developed a set of 12 algorithms in both languages. From the analysis of the results, it turned out that there are not many differences between the two paradigms.
+
+Nonetheless, FP finds very important benefits in the application domain of the prototypes where a case study project is implemented in Haskell in 85 LOC against the 1105 of C++\cite{Haskell-vs-ada}. This is due to three main factors: (a) the syntax is simpler, (b) the use of higher order functions and (c) the standard list-manipulation primitives (i.e. map, fold, zip, ...).
+
+\section{Hypothesis}
+
+\section{Methods}
+\section{Results and Analysis}
+
+\section{Discussion}
 
 \section{Conclusion}
 
-\begin{thebibliography}{9}
-\bibitem{flink}
-Apache Flink. 2015. Apache Flink: Scalable Batch and Stream Data Processing. [ONLINE] Available at: http://flink.apache.org. [Accessed 16 September 15].
-\bibitem{rx}
-ReactiveX. 2015. ReactiveX. [ONLINE] Available at: http://reactivex.io/. [Accessed 16 September 15].
-\bibitem{fpoop}
-R. Harrison, \enquote*{Comparing programming paradigms: an evaluation of functional and object-oriented programs}, Jul. 1996 [Online]. Available: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=511273
-\bibitem{githubapi}
-GitHub Developer. 2015. Statistics | GitHub API. [ONLINE] Available at: https://developer.github.com/v3/repos/statistics/. [Accessed 16 September 15].
-\bibitem{benkio}
-https://github.com/benkio/ITC-Slides
-\end{thebibliography}
+\bibliography{article}
+\bibliographystyle{plain}
+
+%\begin{thebibliography}{9}
+%\bibitem{tiobe}
+%http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html
+%\bibitem{flink}
+%Apache Flink. 2015. Apache Flink: Scalable Batch and Stream Data Processing. [ONLINE] Available at: http://flink.apache.org. [Accessed 16 September 15].
+%\bibitem{rx}
+%ReactiveX. 2015. ReactiveX. [ONLINE] Available at: http://reactivex.io/. [Accessed 16 September 15].
+%\bibitem{fpoop}
+%R. Harrison, \enquote*{Comparing programming paradigms: an evaluation of functional and object-oriented programs}, Jul. 1996 [Online]. Available: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=511273
+%\bibitem{githubapi}
+%GitHub Developer. 2015. Statistics | GitHub API. [ONLINE] Available at: https://developer.github.com/v3/repos/statistics/. [Accessed 16 September 15].
+%\bibitem{benkio}
+%https://github.com/benkio/ITC-Slides
+%\end{thebibliography}
 
 \end{document}
