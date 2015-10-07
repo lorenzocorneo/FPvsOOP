@@ -40,7 +40,7 @@ The aim of the research is to show the benefits of FP over OOP with the hope to 
 
 \section{Literature study}
 
-OOP is the de facto standard programming paradigm for companies and widely adopted all around the world. This find a confirmation in the TIOBE Index\cite{tiobe}. In fact, in the first positions only OOP and Web programming languages are found, while the first FP language is Scala at the 24th position with a rating of 0.781\%
+OOP is the de facto standard programming paradigm for companies and widely adopted all around the world. This find a confirmation in the TIOBE Index\cite{tiobe}. In fact, in the first positions only OOP and Web programming languages are found, while the first FP language is Scala at the 24th position with a very low rating of 0.781\%.
 
 Nevertheless, functional programming gurus always try to persuade imperative programmers to switch to this paradigm promising incredible advantages. Amongst these benefits we found the lack of assignment statements (variables never change) and side effects, which is the major source of bugs in software development\cite{fpmatter}.
 
@@ -64,21 +64,63 @@ Afterward, when the data will be acquired, the authors will perform observation 
 
 \section{Results and Analysis}
 
+The experimentation consist in static code analysis on a set of eight algorithms, namely:
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{1}
-\caption{The graph represents the distribution of both FP and OOP paradigm in different algorithms.}
-\end{figure}
+\begin{itemize}
+\item FASTA
+\item k-nucleotide
+\item Mandelbrot
+\item n-body
+\item pidigits
+\item regex-dna
+\item reverse-complement
+\item spectral-norm
+\end{itemize}
+
+The previous set of algorithms has been implemented in the following functional languages (both pure and not):
+
+\begin{itemize}
+\item Haskell
+\item Erlang
+\item Scala
+\item Clojure
+\item F\#
+\item Python
+\end{itemize}
+The object-oriented languages these algorithm were implemented with are:
+
+\begin{itemize}
+\item C++
+\item C\#
+\item Go
+\item Java
+\end{itemize}
+
+In the experimentation we analysed the LOC for each language per each algorithms and the results are shown in Fig. \ref{fig:alg}. In this graph it is possible to see which language is the most efficient in terms of lines of code per each single algorithm.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{2}
 \caption{The graph shows the distribution of the LOC of different languages implementation for different algorithms.}
+\label{fig:alg}
 \end{figure}
+
+An alternative way to visualise these results is to think in terms of language and display which algorithms is the best to implement and be more productive. Fig \ref{fig:lang} shows this alternative representation.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{3}
 \caption{The graph shows the LOC used to solve each algorithm for the same language.}
+\label{fig:lang}
 \end{figure}
+
+The above graphs have the disadvantages to present too much information so that the readers may have trouble understanding which paradigm is more efficient. For this reason we synthesised the gathered data in a graph that shows only the average LOC for each paradigm per each algorithm. This representation of the data is shown in Fig. \ref{fig:fpvsoop}.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{1}
+\caption{The graph represents the distribution of both FP and OOP paradigm in different algorithms.}
+\label{fig:fpvsoop}
+\end{figure}
+
+What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in certain algorithms the LOC in FP implementations are less than the half of OOP implementation.
 
 \section{Discussion}
 
