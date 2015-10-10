@@ -64,14 +64,14 @@ Afterward, when the data will be acquired, the authors will perform observation 
 
 \section{Results and Analysis}
 
-The experimentation consist in static code analysis on a set of eight algorithms, namely:
+The experimentation consist in static code analysis on a set of eight algorithms\cite{algorithms}, namely:
 
 \begin{itemize}
 \item FASTA
 \item k-nucleotide
 \item Mandelbrot
 \item n-body
-\item pidigits
+\item pi-digits
 \item regex-dna
 \item reverse-complement
 \item spectral-norm
@@ -104,6 +104,46 @@ In the experimentation we analysed the LOC for each language per each algorithms
 \label{fig:alg}
 \end{figure}
 
+\begin{table}[htbp]
+\centering
+\caption{LOC for different implementations.}
+\label{tab:all}
+    \begin{tabular}{rcccccccccc}
+
+         & Haskell & Erlang & Scala & Clojure & F\#  & Python & C++ & C\#  & Go  & Java \\ 
+\hline
+        FASTA                & 111     & 61     & 91    & 129     & 69  & 84     & 132 & 144 & 162 & 292  \\ 
+        k-nucleotide         & 159     & 67     & 194   & 266     & 104 & 156    & 117 & 168 & 175 & 143  \\ 
+        Mandelbrot           & 49      & 42     & 59    & 110     & 54  & 59     & 79  & 63  & 103 & 55   \\ 
+        n-body               & 166     & 114    & 117   & 189     & 98  & 89     & 132 & 100 & 127 & 138  \\ 
+        Pi-digit             & 13      & 33     & 88    & 266     & 89  & 33     & 72  & 113 & 85  & 110  \\ 
+        regex-dna            & 106     & 95     & 148   & 51      & 52  & 38     & 62  & 38  & 77  & 148  \\ 
+        reverse-compl.   & 68      & 136    & 66    & 64      & -   & 61     & 222 & 85  & 174 & 182  \\ 
+        spectral-norm        & 22      & 35     & 50    & 94      & 59  & 39     & 161 & 109 & 72  & 98  \\
+\hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{LOC for the two paradigms.}
+\label{tab:all}
+    \begin{tabular}{rcccccccccc}
+
+         & FP & OOP \\ 
+\hline
+        FASTA  & 91 & 183 \\ 
+        k-nucleotide & 158 & 151\\ 
+        Mandelbrot & 63 & 75 \\ 
+        n-body & 129 & 125 \\ 
+        Pi-digit & 87 & 95 \\
+        regex-dna & 82 & 65 \\ 
+        reverse-compl. & 66 & 166 \\ 
+        spectral-norm & 50 & 110 \\
+\hline
+    \end{tabular}
+\end{table}
+
 An alternative way to visualise these results is to think in terms of language and display which algorithms is the best to implement and be more productive. Fig \ref{fig:lang} shows this alternative representation.
 
 \begin{figure}[h]
@@ -120,9 +160,21 @@ The above graphs have the disadvantages to present too much information so that 
 \label{fig:fpvsoop}
 \end{figure}
 
-What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in certain algorithms the LOC in FP implementations are less than the half of OOP implementation.
+What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in algorithms, like FASTA, revers-complement and spectral-norm, the LOC in FP implementations are less than the half of OOP implementation. This find explanation in \cite{fpmatter} where the benefits of FP are discussed. Among the most significative there are: the syntax (which is simpler), higher order functions and the standard list-manipulation primitives.
 
 \section{Discussion}
+
+Static code analysis on the lines of code itself is not enough to have a global vision about the two paradigms. In fact, there are many additional factors that affect productivity such as the documentation, the comments, the development time, the application domain, the experience of the developer, the time to implement modifications\cite{harrison, Haskell-vs-ada}.
+
+For example, in Fig. \ref{fig:hudak} we notice that a very concise implementation may require a bigger documentation, like in the case of (1). Furthermore, we observe that in (1), (2), (3), (10) the development time is proportional to the LOC and this fact support our hypothesis.
+
+It has not been possible to succeed in the experimentation concerning the CR as we could not find a suitable case study\cite{play, flink, rx}. For instance, many implementations are based on the JVM so that the developers reuse their Java implementation building an API layer for functional languages, like Scala and Clojure.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{4}
+\caption{The result of Hudak and Jones experimentation in\cite{Haskell-vs-ada}.}
+\label{fig:hudak}
+\end{figure}
 
 \section{Conclusion}
 
