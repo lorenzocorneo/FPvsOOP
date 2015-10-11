@@ -14,7 +14,7 @@
 \maketitle
 
 \begin{abstract}
-Human resources and time consumption are very important factors in software development. Both developers and managers try to maximise their productivity, in order to increase as much as possible the profits or gain market advantage. We assume that choosing an appropriate programming paradigm is a critical factor that leads to saving of these resources.
+Human resources and time consumption are very important factors in software development. Both developers and managers try to maximise their productivity, in order to increase as much as possible the profits or gain market advantage. We assume that choosing an appropriate programming paradigm is a critical factor that leads to a better allocation of human resources.
 
 The main object of investigation in this project are the lines of code needed to develop two different implementations of the same program and the level of reusability of existing code.
 
@@ -34,7 +34,7 @@ The main test-bed for the productivity analysis is based on the LOC of different
 
 The CR is evaluated counting the difference in terms of LOC between adjacent releases of a program. Object of the investigation, as a case study, is the asynchronous web server Play framework\cite{play}, that is implemented both in Java and Scala.
 
-In section 2, a summary of the studied literature will be presented while in section 3 the methods and the hypothesis will be discussed. The results of the investigation and the analysis are presented in section 5, in section 6 a discussion about the initial hypothesis and the results will be discussed.
+In section 2, a summary of the studied literature will be presented while in section 3 the methods and the hypothesis will be discussed. The results of the investigation and the analysis are presented in section 5, in section 6 a discussion about the problems and additional work is provided.
 
 The aim of the research is to show the benefits of FP over OOP with the hope to persuade software developer to adopt FP as their main programming paradigm, for a better productivity and code reuse. 
 
@@ -64,7 +64,7 @@ Afterward, when the data will be acquired, the authors will perform observation 
 
 \section{Results and Analysis}
 
-The experimentation consist in static code analysis on a set of eight algorithms\cite{algorithms}, namely:
+The experimentation consists in static code analysis on a set of eight algorithms\cite{algorithms}, namely:
 
 \begin{itemize}
 \item FASTA
@@ -77,26 +77,11 @@ The experimentation consist in static code analysis on a set of eight algorithms
 \item spectral-norm
 \end{itemize}
 
-The previous set of algorithms has been implemented in the following functional languages (both pure and not):
+This set of algorithms has been implemented in Haskell, Erlang, Scala, Clojure, F\# and Python for the functional programming paradigm, in C++, C\#, Go and Java for the object-oriented paradigm.
 
-\begin{itemize}
-\item Haskell
-\item Erlang
-\item Scala
-\item Clojure
-\item F\#
-\item Python
-\end{itemize}
-The object-oriented languages these algorithm were implemented with are:
+In the experimentation we analysed the LOC for each language per each algorithm and the results are shown in Table \ref{tab:all}. In Fig. \ref{fig:alg} is possible to see which language is the most efficient in terms of lines of code per each single algorithm.
 
-\begin{itemize}
-\item C++
-\item C\#
-\item Go
-\item Java
-\end{itemize}
-
-In the experimentation we analysed the LOC for each language per each algorithms and the results are shown in Fig. \ref{fig:alg}. In this graph it is possible to see which language is the most efficient in terms of lines of code per each single algorithm.
+An alternative way to visualise these results is to think in terms of language and display which algorithms is the best to implement in and to be more productive. Fig \ref{fig:lang} shows this alternative representation.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{2}
@@ -127,7 +112,7 @@ In the experimentation we analysed the LOC for each language per each algorithms
 \begin{table}[htbp]
 \centering
 \caption{LOC for the two paradigms.}
-\label{tab:all}
+\label{tab:fpvsoop}
     \begin{tabular}{rcccccccccc}
 
          & FP & OOP \\ 
@@ -144,15 +129,13 @@ In the experimentation we analysed the LOC for each language per each algorithms
     \end{tabular}
 \end{table}
 
-An alternative way to visualise these results is to think in terms of language and display which algorithms is the best to implement and be more productive. Fig \ref{fig:lang} shows this alternative representation.
-
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{3}
 \caption{The graph shows the LOC used to solve each algorithm for the same language.}
 \label{fig:lang}
 \end{figure}
 
-The above graphs have the disadvantages to present too much information so that the readers may have trouble understanding which paradigm is more efficient. For this reason we synthesised the gathered data in a graph that shows only the average LOC for each paradigm per each algorithm. This representation of the data is shown in Fig. \ref{fig:fpvsoop}.
+Table \ref{tab:all} contains many measurements and it is not immediate to understand its meaning. Table \ref{tab:fpvsoop} summarise the aforementioned results in terms of FP and OOP, where the average of the LOC are the entries of the table for the two paradigms, and Fig. \ref{fig:fpvsoop} is the graphical equivalent representation.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{1}
@@ -160,15 +143,15 @@ The above graphs have the disadvantages to present too much information so that 
 \label{fig:fpvsoop}
 \end{figure}
 
-What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in algorithms, like FASTA, revers-complement and spectral-norm, the LOC in FP implementations are less than the half of OOP implementation. This find explanation in \cite{fpmatter} where the benefits of FP are discussed. Among the most significative there are: the syntax (which is simpler), higher order functions and the standard list-manipulation primitives.
+What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in algorithms like FASTA, revers-complement and spectral-norm, the LOC in FP implementations are less than the half of OOP implementation. This find explanation in \cite{fpmatter} where the benefits of FP are discussed. Among the most significative there are: the syntax (which is simpler), higher order functions and the standard list-manipulation primitives (which offer better abstraction and code reuse).
 
 \section{Discussion}
 
+It has not been possible to succeed in the experimentation concerning the CR as we could not find a suitable case study\cite{play, flink, rx}. For instance, many implementations are based on the JVM so that the developers reuse their Java implementation building an API layer for functional languages, like Scala and Clojure.
+
 Static code analysis on the lines of code itself is not enough to have a global vision about the two paradigms. In fact, there are many additional factors that affect productivity such as the documentation, the comments, the development time, the application domain, the experience of the developer, the time to implement modifications\cite{harrison, Haskell-vs-ada}.
 
-For example, in Fig. \ref{fig:hudak} we notice that a very concise implementation may require a bigger documentation, like in the case of (1). Furthermore, we observe that in (1), (2), (3), (10) the development time is proportional to the LOC and this fact support our hypothesis.
-
-It has not been possible to succeed in the experimentation concerning the CR as we could not find a suitable case study\cite{play, flink, rx}. For instance, many implementations are based on the JVM so that the developers reuse their Java implementation building an API layer for functional languages, like Scala and Clojure.
+Nevertheless, we strongly believe that the LOC are directly involved in the productivity and our hypothesis finds confirmation in \cite{Haskell-vs-ada}. In fact, in Fig. \ref{fig:hudak} we notice that in (1), (2), (3), (10) the development time is proportional to the LOC and this fact support our hypothesis.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{4}
@@ -177,6 +160,14 @@ It has not been possible to succeed in the experimentation concerning the CR as 
 \end{figure}
 
 \section{Conclusion}
+
+In this investigation we wanted to see whether the functional programming paradigm would affect positively the productivity and the code reuse during the software development process. 
+
+Unfortunately, we were not able to check whether it is easier for functional programmers to upgrade software in new releases due to difficulties in finding an appropriate case study. In fact, many framework has been taken as case study but in none of them we could find a parallel branch. Usually, these framework has been early developed in Java and thanks to the JVM they could reuse the already existing Java code for feeding an API layer in other JVM-based functional languages.
+
+We were able to correlate the productivity through the analysis of the LOC and the development time. After the evaluation we can state that FP has real advantages over OOP as it is usually less verbose and this implies time saving.
+
+Even though we could not demonstrate benefits in CR, our findings suggest that the functional programming paradigm might really help developers in terms of productivity in order to improve the allocation of human resources.
 
 \bibliography{article}
 \bibliographystyle{plain}
