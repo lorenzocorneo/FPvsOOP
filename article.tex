@@ -56,11 +56,11 @@ We strongly believe that, using functional programming languages, developers wil
 
 \section{Methods}
 
-A quantitative method is used for this project because the authors will gather data from many sources and they will report in the paper. Afterward, the analysis of the gathered data will be performed so that the initial hypothesis will be either accepted or rejected.
+A quantitative method is used for this project because the authors have gathered data from many sources and they report in this paper. Afterward, the analysis of the gathered data is performed so that the initial hypothesis will be either accepted or rejected.
 
-The approach used will be deductive because we started this research with our own hypothesis on the basis of existing theories, for instance, regarding the benefits of FP and the advantages that developers can gain in software production.
+The approach used is deductive because we started this research with our own hypothesis on the basis of existing theories, for instance, regarding the benefits of FP and the advantages that developers can gain in software production.
 
-Afterward, when the data will be acquired, the authors will perform observation and analysis of the gotten results. From that, it will be possible to accept or reject the initial hypothesis.
+Afterward, when the data has been acquired, the authors perform observation and analysis of the gotten results. From that, it will be possible to accept or reject the initial hypothesis.
 
 \section{Results and Analysis}
 
@@ -78,6 +78,8 @@ The experimentation consists in static code analysis on a set of eight algorithm
 \end{itemize}
 
 This set of algorithms has been implemented in Haskell, Erlang, Scala, Clojure, F\# and Python for the functional programming paradigm, in C++, C\#, Go and Java for the object-oriented paradigm.
+
+\subsection{Lines of Code}
 
 In the experimentation we analysed the LOC for each language per each algorithm and the results are shown in Table \ref{tab:all}. In Fig. \ref{fig:alg} is possible to see which language is the most efficient in terms of lines of code per each single algorithm.
 
@@ -145,9 +147,11 @@ Table \ref{tab:all} contains many measurements and it is not immediate to unders
 
 What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in algorithms like FASTA, revers-complement and spectral-norm, the LOC in FP implementations are less than the half of OOP implementation. This find explanation in \cite{fpmatter} where the benefits of FP are discussed. Among the most significative there are: the syntax (which is simpler), higher order functions and the standard list-manipulation primitives (which offer better abstraction and code reuse).
 
-\section{Discussion}
+\subsection{Code Reuse}
 
 It has not been possible to succeed in the experimentation concerning the CR as we could not find a suitable case study\cite{play, flink, rx}. For instance, many implementations are based on the JVM so that the developers reuse their Java implementation building an API layer for functional languages, like Scala and Clojure.
+
+\section{Discussion}
 
 Static code analysis on the lines of code itself is not enough to have a global vision about the two paradigms. In fact, there are many additional factors that affect productivity such as the documentation, the comments, the development time, the application domain, the experience of the developer, the time to implement modifications\cite{harrison, Haskell-vs-ada}.
 
