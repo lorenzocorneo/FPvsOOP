@@ -7,7 +7,7 @@
 \graphicspath{ {img/} }
 \begin{document}
 
-\title{Functional vs. Object Oriented Programming}
+\title{Functional vs. Object Oriented Programming: Productivity comparison}
 \author{Lorenzo Corneo and Nikolaos-Ektoras Anestos \\
 	\{corneo, anestos\}@kth.se}
 \date{\today}
@@ -20,7 +20,7 @@ The main object of investigation in this project are the lines of code needed to
 
 Functional programming has some fundamental benefits that increase programmer productivity over that when OOP languages. The purpose of this project is to demonstrate some of the benefits of functional programming over OOP, in order to persuade developers to switch to functional programming.
 
-From the evaluation of the gathered data it is possible to see that, averagely, the number of Lines Of Code in a functional programming language is smaller than in an Object Oriented Programming language. As a consequence, Functional Programming allows an increased productivity (fewer lines of code correspond to a time saving).
+From the evaluation of the gathered data it is possible to see that, averagely, the number of Lines Of Code in a functional programming language is smaller than in an Object Oriented Programming language. As a consequence, Functional Programming allows an increased productivity (fewer lines of code correspond to a time saving during development).
 \end{abstract}
 
 \smallskip
@@ -67,14 +67,14 @@ Afterward, when the data will be acquired, the authors will perform observation 
 The experimentation consists in static code analysis on a set of eight algorithms\cite{algorithms}, namely:
 
 \begin{itemize}
-\item FASTA
-\item k-nucleotide
-\item Mandelbrot
-\item n-body
-\item pi-digits
-\item regex-dna
-\item reverse-complement
-\item spectral-norm
+\item FASTA, generate and write random DNA sequences
+\item k-nucleotide, repeatedly update hashtables and k-nucleotide strings
+\item Mandelbrot, generate a Mandelbrot set and write a portable bitmap
+\item n-body, perform an N-body simulation of the Jovian planets
+\item pi-digits, calculate the digits of Pi with arbitrary-precision arithmetic
+\item regex-dna, match DNA 8-mers and substitute nucleotides for IUB code
+\item reverse-complement, read DNA sequences and write their reverse-complement
+\item spectral-norm, calculate an eigenvalue using the power method
 \end{itemize}
 
 This set of algorithms has been implemented in Haskell, Erlang, Scala, Clojure, F\# and Python for the functional programming paradigm, in C++, C\#, Go and Java for the object-oriented paradigm.
