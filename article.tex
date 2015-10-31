@@ -14,11 +14,11 @@
 \maketitle
 
 \begin{abstract}
-Human resources and time consumption are very important factors in software development. Both developers and managers try to maximise their productivity, in order to increase as much as possible the profits or gain market advantage. We assume that choosing an appropriate programming paradigm is a critical factor that leads to a better allocation of human resources.
+Human resources and time consumption are very important factors in software development. Both developers and managers try to maximize their productivity, in order to increase as much as possible the profits, or gain market advantage. We assume that choosing an appropriate programming paradigm is a critical factor that leads to a better allocation of human resources during software development.
 
 The main object of investigation in this project are the lines of code needed to develop two different implementations of the same program and the level of reusability of existing code.
 
-Functional programming has some fundamental benefits that increase programmer productivity over that when OOP languages. The purpose of this project is to demonstrate some of the benefits of functional programming over OOP, in order to persuade developers to switch to functional programming.
+Functional Programming languages, have some fundamental benefits that increase programmer productivity over Object Oriented Programming languages. The purpose of this project is to demonstrate some of the benefits of functional programming over OOP, in order to persuade developers to adopt functional programming and use it in more and more cases.
 
 From the evaluation of the gathered data it is possible to see that, averagely, the number of Lines Of Code in a functional programming language is smaller than in an Object Oriented Programming language. As a consequence, Functional Programming allows an increased productivity (fewer lines of code correspond to a time saving during development).
 \end{abstract}
@@ -28,19 +28,19 @@ From the evaluation of the gathered data it is possible to see that, averagely, 
 
 \section{Introduction}
 
-The paper presents the results of a quantitative evaluation of code implemented in both Functional Programming and Object Oriented Programming. The main parameters that will be analysed are the Line Of Code and the Code Reuse.
+The paper presents the results of a quantitative evaluation of code implemented in both Functional Programming and Object Oriented Programming. The main parameters that will be analyzed are the Line Of Code and the Code Reuse.
 
 The main test-bed for the productivity analysis is based on the LOC of different implementations (both FP and OOP) of very well-known algorithms. The language pool is composed by Erlang, Haskell, Scala, F\#, for the FP languages and by Java, C++, C\#, Python for the OOP languages.
 
-The CR is evaluated counting the difference in terms of LOC between adjacent releases of a program. Object of the investigation, as a case study, is the asynchronous web server Play framework\cite{play}, that is implemented both in Java and Scala.
+The CR is evaluated counting the difference in terms of LOC between adjacent releases of a program. Object of the investigation, as a case study, are the asynchronous web server Play framework\cite{play}, apache Flink\cite{flink} and Reactive X library\cite{rx} that are implemented both in Java and Scala.
 
-In section 2, a summary of the studied literature will be presented while in section 3 the methods and the hypothesis will be discussed. The results of the investigation and the analysis are presented in section 5, in section 6 a discussion about the problems and additional work is provided.
+In section 2, a summary of the studied literature will be presented while in section 3 the methods and the hypothesis will be discussed. The results of the investigation and the analysis are presented in section 5, in section 6 a discussion about the problems and finally we recognize the future work that needs to be done in section 7.
 
 The aim of the research is to show the benefits of FP over OOP with the hope to persuade software developer to adopt FP as their main programming paradigm, for a better productivity and code reuse. 
 
 \section{Literature study}
 
-OOP is the de facto standard programming paradigm for companies and widely adopted all around the world. This find a confirmation in the TIOBE Index\cite{tiobe}. In fact, in the first positions only OOP and Web programming languages are found, while the first FP language is Scala at the 24th position with a very low rating of 0.781\%.
+OOP is the de facto standard programming paradigm for companies and widely adopted all around the world. This finds confirmation in the TIOBE Index\cite{tiobe}. In fact, in the first positions only OOP and Web programming languages are found, while the first FP language is Scala at the 24th position with a very low rating of 0.781\%.
 
 Nevertheless, functional programming gurus always try to persuade imperative programmers to switch to this paradigm promising incredible advantages. Amongst these benefits we found the lack of assignment statements (variables never change) and side effects, which is the major source of bugs in software development\cite{fpmatter}.
 
@@ -50,17 +50,17 @@ Nonetheless, FP finds very important benefits in the application domain of the p
 
 \section{Hypothesis}
 
-Human resources and time consumption are very important factors in software development, especially for companies that want to optimise profits and gain advantages from the market. 
+Human resources and time consumption are very important factors in software development, especially for companies that want to optimize profits and gain advantages over the market. 
 
-We strongly believe that, using functional programming languages, developers will be more productive and they will also produce higher quality code that will allow them to reuse much of it when releasing newer versions of their programs.
+We strongly believe that, using functional programming languages, developers will be more productive and they will also produce higher quality code that will allow them to reuse much of it when updating their programs.
 
 \section{Methods}
 
 A quantitative method is used for this project because the authors have gathered data from many sources and they report in this paper. Afterward, the analysis of the gathered data is performed so that the initial hypothesis will be either accepted or rejected.
 
-The approach used is deductive because we started this research with our own hypothesis on the basis of existing theories, for instance, regarding the benefits of FP and the advantages that developers can gain in software production.
+The approach used is deductive. The authors started this research stating their hypothesis on the basis of existing theories, for instance, regarding the benefits of FP and the advantages that developers can gain in software production.
 
-Afterward, when the data has been acquired, the authors perform observation and analysis of the gotten results. From that, it will be possible to accept or reject the initial hypothesis.
+Afterwards, when the data has been acquired, the authors perform observation and analysis of the gathered results. From that, it will be possible to accept or reject the initial hypothesis.
 
 Static code analysis on the set of algorithms described below has been performed using the command line tool called Count Lines of Code (cloc) \cite{cloc}, which counts lines of code, blank lines and comments in multiple languages. There are several options on how to present the data using this tool, i.e. one can obtain an analysis of a language used inside a project (several files), or extract results for each file individuals etc.
 
@@ -70,7 +70,7 @@ The experimentation consists in static code analysis on a set of eight algorithm
 
 \begin{itemize}
 \item FASTA, generate and write random DNA sequences.
-\item k-nucleotide, repeatedly update hashtables and k-nucleotide strings.
+\item k-nucleotide, repeatedly update hash tables and k-nucleotide strings.
 \item Mandelbrot, generate a Mandelbrot set and write a portable bitmap.
 \item n-body, perform an N-body simulation of the Jovian planets.
 \item pi-digits, calculate the digits of Pi with arbitrary-precision arithmetic.
@@ -83,9 +83,9 @@ This set of algorithms has been implemented in Haskell, Erlang, Scala, Clojure, 
 
 \subsection{Lines of Code}
 
-In the experimentation we analysed the LOC for each language per each algorithm and the results are shown in Table \ref{tab:all}. In Fig. \ref{fig:alg} is possible to see which language is the most efficient in terms of lines of code per each single algorithm.
+In the experimentation we analyzed the LOC for each language per each algorithm and the results are shown in Table \ref{tab:all}. In Fig. \ref{fig:alg} is possible to see which language is the most efficient in terms of lines of code per each single algorithm.
 
-An alternative way to visualise these results is to think in terms of language and display which algorithms is the best to implement in and to be more productive. Fig \ref{fig:lang} shows this alternative representation.
+An alternative way to visualize these results is to think in terms of language and display which algorithms is the best to implement in and to be more productive. Fig \ref{fig:lang} shows this alternative representation.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{2}
@@ -139,7 +139,7 @@ An alternative way to visualise these results is to think in terms of language a
 \label{fig:lang}
 \end{figure}
 
-Table \ref{tab:all} contains many measurements and it is not immediate to understand its meaning. Table \ref{tab:fpvsoop} summarise the aforementioned results in terms of FP and OOP, where the average of the LOC are the entries of the table for the two paradigms, and Fig. \ref{fig:fpvsoop} is the graphical equivalent representation.
+Table \ref{tab:all} contains many measurements and it is not immediate to understand its meaning. Table \ref{tab:fpvsoop} summarizes the aforementioned results in terms of FP and OOP, where the average of the LOC are the entries of the table for the two paradigms, and Fig. \ref{fig:fpvsoop} is the graphical equivalent representation.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{1}
@@ -147,11 +147,13 @@ Table \ref{tab:all} contains many measurements and it is not immediate to unders
 \label{fig:fpvsoop}
 \end{figure}
 
-What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in algorithms like FASTA, revers-complement and spectral-norm, the LOC in FP implementations are less than the half of OOP implementation. This find explanation in \cite{fpmatter} where the benefits of FP are discussed. Among the most significative there are: the syntax (which is simpler), higher order functions and the standard list-manipulation primitives (which offer better abstraction and code reuse).
+What we evince from the gathered data is that, normally, there is no big difference between the LOC for FP and OOP. Nevertheless, in algorithms like FASTA, revers-complement and spectral-norm, the LOC in FP implementations are less than the half of OOP implementation. This find explanation in \cite{fpmatter} where the benefits of FP are discussed. Some of the most significant are: the syntax (which is simpler), higher order functions and the standard list-manipulation primitives (which offer better abstraction and code reuse).
 
 \subsection{Code Reuse}
 
 It has not been possible to succeed in the experimentation concerning the CR as we could not find a suitable case study\cite{play, flink, rx}. For instance, many implementations are based on the JVM so that the developers reuse their Java implementation building an API layer for functional languages, like Scala and Clojure.
+
+Also, in most cases, the features that the developers provide in each version are not exactly the same for the two paradigms. For example version 2.0 has features X, Y, Z in OOP but only feature X is implemented for the functional API. This makes it impossible to compare the two paradigms over this parameters, but we found that in the case where a feature is present for both paradigms, the FP API needs always less lines of code to call it, over the OOP counterpart. 
 
 \section{Discussion}
 
@@ -167,19 +169,21 @@ Nevertheless, we strongly believe that the LOC are directly involved in the prod
 
 \section{Future work}
 
-We have just demonstrated with a quantitative approach that FP paradigm has real benefits that help the developers to increase their productivity when writing code. Then, a question raise spontaneously: why FP languages are so unpopular, accordingly to TIOBE Index (October 2015)\cite{tiobe}, if they have all of these benefits?
+We have just demonstrated with a quantitative approach that FP paradigm has real benefits that help the developers increase their productivity when writing code. Then, a question raises spontaneously: why FP languages are so unpopular, accordingly to TIOBE Index (October 2015)\cite{tiobe}, if they have all of these benefits?
 
-We strongly believe that the most important factor that cuts off from the market these languages is the lack of a consistent and agile Graphic User Interface library support. Nowadays, the user interface and the user experience have become an essential requirement for every kind software. Furthermore, many object oriented implementation, in complex software systems, are more verbose than functional programming because of the code concerning the GUI building. It is not a coincidence that Erlang, for example, runs in the backend of Facebook, WhatsApp and many other software systems.
+We strongly believe that the most important factor that cuts off from the market these languages is the lack of a consistent and agile Graphic User Interface library support. Nowadays, the user interface and the user experience have become an essential requirement for every kind software. Furthermore, many object oriented implementations, in complex software systems, are more verbose than functional programming because of the code concerning the GUI building. It is not a coincidence that Erlang, for example, runs in the back-end of Facebook, WhatsApp and many other software systems.
 
-For future work, when also FP languages will have a valuable GUI support, we want to consider complex systems (not only algorithms) and investigate how the new results will differ from the ones presented here. To conclude, as already mentioned in the previous section, in order to have a global view on the topic we want to analyse other meaningful parameters (i.e. documentation, the comments, the development time, the application domain, etc..) and see if FP paradigm keeps on being better than OOP paradigm.
+For future work, when also FP languages will have a valuable GUI support, we want to consider complex systems (not only algorithms) and investigate how the new results will differ from the ones presented here. As already mentioned in the previous section, in order to have a global view on the topic we want to analyze other meaningful parameters (i.e. documentation, the comments, the development time, the application domain, etc..) and see if FP paradigm keeps on being better than OOP paradigm.
+
+Finally, one other aspect that managers and companies need to take into consideration when they want to hire programmers, is their cost. At the moment, the wide adoption of OOP languages over FP makes functional programmers less common which means that they are also more expensive. Our study so far, tries to show the advantages of FP in order to make new developers adopt it, reducing the aforementioned gap.
 
 \section{Conclusion}
 
 In this investigation we wanted to see whether the functional programming paradigm would affect positively the productivity and the code reuse during the software development process. 
 
-Unfortunately, we were not able to check whether it is easier for functional programmers to upgrade software in new releases due to difficulties in finding an appropriate case study. In fact, many framework has been taken as case study but in none of them we could find a parallel branch. Usually, these framework has been early developed in Java and thanks to the JVM they could reuse the already existing Java code for feeding an API layer in other JVM-based functional languages.
+Unfortunately, we were not able to check whether it is easier for functional programmers to upgrade software in new releases due to difficulties in finding an appropriate case study. In fact, many frameworks has been taken as case studies but in none of them we could find a parallel branch. Usually, these framework has been early developed in Java and thanks to the JVM they could reuse the already existing Java code to feed an API layer in other JVM-based functional languages.
 
-We were able to correlate the productivity through the analysis of the LOC and the development time. After the evaluation we can state that FP has real advantages over OOP as it is usually less verbose and this implies time saving.
+We were able to correlate the productivity through the analysis of the LOC and the development time. After the evaluation we can state that FP has real advantages over OOP as it is usually less verbose and this implies time saving during development.
 
 Even though we could not demonstrate benefits in CR, our findings suggest that the functional programming paradigm might really help developers in terms of productivity in order to improve the allocation of human resources.
 
